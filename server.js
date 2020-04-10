@@ -12,3 +12,12 @@ app.listen(PORT, () => console.log(`Server started on port ${PORT}`.cyan.bold));
 app.get('/', (req, res) => res.send('API running'));
 //connect Databse
 connectDB();
+
+// Init Middleware
+app.use(express.json({ extended: false })); // access object.data sent via the req route ie req.body must come b4 routes
+
+//Define Routes
+app.use('/api/users', require('./routes/api/users'));
+app.use('/api/auth', require('./routes/api/auth'));
+app.use('/api/profile', require('./routes/api/profile'));
+app.use('/api/posts', require('./routes/api/posts'));
