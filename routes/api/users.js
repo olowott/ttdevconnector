@@ -1,6 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const { check, validationResult } = require('express-validator/check');
+const { check, validationResult } = require('express-validator');
+const gravatar = require('gravatar');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const config = require('config');
 
 const User = require('../../models/User'); // bringing user model
 
@@ -17,7 +21,7 @@ router.post(
       'Please enter a password with 6 or more characters'
     ).isLength({ min: 6 }),
   ],
-  (req, res) => {
+  async (req, res) => {
     // console.log(req.body); // this is to allow us object.data sent via the req route ie req.body
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -25,15 +29,54 @@ router.post(
     }
 
     const { name, email, password } = req.body;
-    //see if user exists
 
-    //get user gravatar
+    try {
+      let user = await User.findOne({ email });
+      //see if user exists
+      if (user) {
+        return res
+          .status(400)
+          .json({ errors: [{ msg: 'User already exists' }] });
+      }
+      //get user gravatar
+      const avatar = gravatar.url(email, {
+        s: '200',
+        r: 'pg',
+        d: 'mm',
+      });
+      // just create an instance, not save to DB
+      user = new User({
+        name,
+        email,
+        avatar,
+        password,
+      });
 
-    //encrypt password
-
-    // return jsonwebtoken
-
-    res.send('User route');
+      //encrypt password
+      const salt = await bcrypt.genSalt(10);
+      //hash password
+      user.password = await bcrypt.hash(password, salt);
+      // save to DB
+      await user.save();
+      // return jsonwebtoken
+      const payload = {
+        user: {
+          id: user.id,
+        },
+      };
+      jwt.sign(
+        payload,
+        config.get('jwtSecret'),
+        { expiresIn: 360000 },
+        (err, token) => {
+          if (err) throw err;
+          res.json({ token });
+        }
+      );
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server error');
+    }
   }
 );
 

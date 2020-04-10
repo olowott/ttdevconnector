@@ -1,3 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://mern-olowott:5QJCQvKXfx4AEsaE@mernconnector-efaoz.mongodb.net/test?retryWrites=true&w=majority"
+  "mongoURI": "mongodb+srv://mern-olowott:5QJCQvKXfx4AEsaE@mernconnector-efaoz.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "mern101token"
 }
