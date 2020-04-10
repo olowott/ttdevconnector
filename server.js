@@ -1,4 +1,5 @@
 const express = require('express'); // init a server
+const connectDB = require('./config/db'); //connection to MongoDatabase
 
 //get server to start
 const app = express();
@@ -8,3 +9,5 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
 // single end point for the API
 app.get('/', (req, res) => res.send('API running'));
+//connect Databse
+connectDB();
