@@ -100,7 +100,7 @@ const AddEducation = ({ addEducation, history }) => {
                 toggleDisbaled(!toDateDisabled);
               }}
             />{' '}
-            Current Job
+            Current Education
           </p>
         </div>
         <div className="form-group">
@@ -113,7 +113,7 @@ const AddEducation = ({ addEducation, history }) => {
         </div>
 
         <input type="submit" className="btn btn-primary my-1" value="Submit" />
-        <Link href="/dashboard" className="btn btn-dark my-1">
+        <Link to="/dashboard" className="btn btn-dark my-1">
           Go Back
         </Link>
       </form>
