@@ -1,6 +1,5 @@
 const express = require('express'); // init a server
 const connectDB = require('./config/db'); //connection to MongoDatabase
-const colors = require('colors'); // coloring the logs
 const path = require('path');
 
 //get server to start
