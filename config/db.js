@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const config = require('config');
 const db = config.get('mongoURI');
-const colors = require('colors'); // coloring the logs
 
 const connectDB = async () => {
   try {
@@ -12,7 +11,7 @@ const connectDB = async () => {
       useFindAndModify: false,
     });
 
-    console.error('MongoDB connected....'.yellow.underline);
+    console.error('MongoDB connected....');
   } catch (err) {
     console.log(err.message);
     // exit process with failure
