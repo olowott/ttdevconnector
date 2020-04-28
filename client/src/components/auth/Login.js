@@ -3,6 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../../actions/auth';
+import loginImage from './login.svg'; //image
 
 const Login = ({ login, isAuthenticated }) => {
   const [formData, setFormData] = useState({
@@ -28,13 +29,13 @@ const Login = ({ login, isAuthenticated }) => {
   return (
     <div className="landing">
       <div className="intro-text">
-        <h1>Welcome Back!</h1>
+        <h1 className="x-large">Welcome Back!</h1>
         <p>
           Do complete your profile, remember to
           <br />
           Start, share ideas and get help from other developers
         </p>
-        <img src="./img/login-devconnectors.svg" alt="ConnectDevelopers" />
+        <img src={loginImage} alt="ConnectDevelopers" />
       </div>
       <div className="intro-form">
         <form className="s-form" onSubmit={(e) => onSubmit(e)}>
