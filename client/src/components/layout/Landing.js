@@ -5,6 +5,7 @@ import { setAlert } from '../../actions/alert';
 import { register } from '../../actions/auth';
 import PropTypes from 'prop-types';
 import Register from '../auth/Register';
+import Devdevelopers from './devedevelopers.svg';
 
 const Landing = ({ setAlert, register, isAuthenticated }) => {
   const [formData, setFormData] = useState({
@@ -42,7 +43,7 @@ const Landing = ({ setAlert, register, isAuthenticated }) => {
           <br />
           Start, share ideas and get help from other developers
         </p>
-        <img src="./img/devedevelopers.svg" alt="ConnectDevelopers" />
+        <img src={Devdevelopers} alt="ConnectDevelopers" />
       </div>
       <div className="intro-form">
         <form className="s-form" onSubmit={(e) => onSubmit(e)}>
