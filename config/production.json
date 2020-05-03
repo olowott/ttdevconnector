@@ -1,6 +1,0 @@
-{
-  "mongoURI": "mongodb://mern-olowott:5QJCQvKXfx4AEsaE@mernconnector-shard-00-00-efaoz.mongodb.net:27017,mernconnector-shard-00-01-efaoz.mongodb.net:27017,mernconnector-shard-00-02-efaoz.mongodb.net:27017/test?ssl=true&replicaSet=MERNConnector-shard-0&authSource=admin&retryWrites=true&w=majority",
-  "jwtSecret": "mern101token",
-  "githubClientId": "586164afb3c571f0e00c",
-  "githubSecret": "9d9c35b2de4b5efb5fda8320ecf004e9e8126955"
-}
