@@ -82,8 +82,8 @@ const EditProfile = ({
       <small>* = required fields </small>
       <form action="#" className="n-forms" onSubmit={(e) => onSubmit(e)}>
         <div className="form-group">
-          <label htmlfor="select"> Select Professional Status </label>
-          <select name="status" value={status} onChange={(e) => onChange(e)}>
+          <label htmlFor="select"> Select Professional Status </label>
+          <select name="status" value={status} onChange={onChange}>
             <option value="0">* Select Professional Status</option>
             <option value="Developer">Developer</option>
             <option value="Junior Developer">Junior Developer</option>
@@ -98,54 +98,49 @@ const EditProfile = ({
         </div>
 
         <div className="form-group">
-          <label htmlfor="company">Company</label>
+          <label htmlFor="company">Company</label>
           <input
             type="text"
             name="company"
             value={company}
-            onChange={(e) => onChange(e)}
+            onChange={onChange}
           />
           <small>Could be your own Company or one you work for</small>
         </div>
         <div className="form-group">
-          <label htmlfor="website">Website</label>
+          <label htmlFor="website">Website</label>
           <input
             type="text"
             name="website"
             value={website}
-            onChange={(e) => onChange(e)}
+            onChange={onChange}
           />
           <small>Could be your own or company website</small>
         </div>
         <div className="form-group">
-          <label htmlfor="location">Location</label>
+          <label htmlFor="location">Location</label>
           <input
             type="text"
             name="location"
             value={location}
-            onChange={(e) => onChange(e)}
+            onChange={onChange}
           />
           <small>City & State suggested (e.g Boston, MA)</small>
         </div>
         <div className="form-group">
-          <label htmlfor="skills">* Skills</label>
-          <input
-            type="text"
-            name="skills"
-            value={skills}
-            onChange={(e) => onChange(e)}
-          />
+          <label htmlFor="skills">* Skills</label>
+          <input type="text" name="skills" value={skills} onChange={onChange} />
           <small>
             Please user comma seperated values (eg HTML, CSS, Javascript, PHP)
           </small>
         </div>
         <div className="form-group">
-          <label htmlfor="github-username">Github Username</label>
+          <label htmlFor="github-username">Github Username</label>
           <input
             type="text"
-            name="github-username"
+            name="githubusername"
             value={githubusername}
-            onChange={(e) => onChange(e)}
+            onChange={onChange}
           />
           <small>
             If you want your latest repos and a Github link, include your
@@ -153,12 +148,8 @@ const EditProfile = ({
           </small>
         </div>
         <div className="form-group">
-          <label htmlfor="bio">A short bio of yourself</label>
-          <textarea
-            name="bio"
-            value={bio}
-            onChange={(e) => onChange(e)}
-          ></textarea>
+          <label htmlFor="bio">A short bio of yourself</label>
+          <textarea name="bio" value={bio} onChange={onChange}></textarea>
           <small>Tell us a little about yourself</small>
         </div>
         <div className="my-2">
@@ -180,7 +171,7 @@ const EditProfile = ({
                 id="twiter"
                 placeholder="Twitter Url"
                 value={twitter}
-                onChange={(e) => onChange(e)}
+                onChange={onChange}
               />
             </div>
             <div className="form-group social-input">
@@ -191,7 +182,7 @@ const EditProfile = ({
                 id="facebook"
                 placeholder="Facebook Url"
                 value={facebook}
-                onChange={(e) => onChange(e)}
+                onChange={onChange}
               />
             </div>
             <div className="form-group social-input">
@@ -202,7 +193,7 @@ const EditProfile = ({
                 id="youtube"
                 placeholder="YouTube Url"
                 value={youtube}
-                onChange={(e) => onChange(e)}
+                onChange={onChange}
               />
             </div>
             <div className="form-group social-input">
@@ -213,7 +204,7 @@ const EditProfile = ({
                 id="linkedin"
                 placeholder="Linkedin Url"
                 value={linkedin}
-                onChange={(e) => onChange(e)}
+                onChange={onChange}
               />
             </div>
             <div className="form-group social-input">
@@ -224,7 +215,7 @@ const EditProfile = ({
                 id="instagram"
                 placeholder="Instagram Url"
                 value={instagram}
-                onChange={(e) => onChange(e)}
+                onChange={onChange}
               />
             </div>
           </Fragment>

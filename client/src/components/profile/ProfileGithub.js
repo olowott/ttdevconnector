@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
@@ -7,7 +8,7 @@ import { getGithubRepos } from '../../actions/profile';
 const ProfileGithub = ({ username, getGithubRepos, repos }) => {
   useEffect(() => {
     getGithubRepos(username);
-  }, [getGithubRepos]);
+  }, [getGithubRepos, username]);
   return (
     <div className="profile-github">
       <h2 className="text-primary my-1">Github Repos</h2>
@@ -18,14 +19,14 @@ const ProfileGithub = ({ username, getGithubRepos, repos }) => {
           <div key={repo._id} className="repo bg-white p-1 my-1">
             <div className="">
               <h4>
-                <a
-                  href={repo.html_url}
+                <Link
+                  to={repo.html_url}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   {' '}
                   {repo.name}
-                </a>
+                </Link>
               </h4>
               <p>{repo.descrption}</p>
             </div>
